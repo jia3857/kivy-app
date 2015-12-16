@@ -12,7 +12,11 @@ class SoundBoard(App):
     def build(self):
         #pasta aonde o programa vai procurar as musicas/sons para adiconionar na board
         #no caso procura na pasta /music dentro da pasta atual.
-        self.musicFolder = os.listdir(os.path.dirname(os.path.abspath(__file__)))[1]+"/music"
+
+        '''gambi, avaliar aonde esta o arquivo ao inves de procurar o [3] dos files'''
+        self.musicFolder = os.listdir(os.path.dirname(os.path.abspath(__file__)))[3]+"/music"
+        
+        
         self.files = os.listdir(os.path.dirname(os.path.abspath(self.musicFolder)))
         #cria o layout para o programa
         self.masterlayout = BoxLayout(orientation="vertical")
