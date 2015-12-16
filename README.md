@@ -2,8 +2,9 @@
 
 A sound board made in kivy for example purposes
 
--Requires kivy
+![exemplo](http://i.imgur.com/k2JgkeT.gifv)
 
+-Requires kivy
 
 -Runs on Android/iOS/Windows/Mac/Linux
 
