@@ -2,7 +2,7 @@
 
 A sound board made in kivy for example purposes
 
-![exemplo](http://i.imgur.com/k2JgkeT.gifv)
+![exemplo](http://i.imgur.com/k2JgkeT.gif)
 
 -Requires kivy
 
