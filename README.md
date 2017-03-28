@@ -4,11 +4,11 @@ A sound board made in kivy for example purposes
 
 ![exemplo](http://i.imgur.com/k2JgkeT.gif)
 
--Requires kivy
+- Requires kivy
 
--Runs on Android/iOS/Windows/Mac/Linux
+- Runs on Android/iOS/Windows/Mac/Linux
 
-##Usage
+## Usage
 
         Put the audio files in the /music and the program will find and prepare the prapare the audio to be played in the aplication
         
