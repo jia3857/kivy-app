@@ -10,7 +10,7 @@ A sound board made in kivy for example purposes
 
 ## Usage
 
-        Put the audio files in the /music and the program will find and prepare the prapare the audio to be played in the aplication
+        Put the audio files in the /music and the program will find and prapare the audio to be played in the aplication
         
         Click (or tap) in the button and the sound will be played.
         click (or tap) in the staaahp button and ALL the sounds will be halted.
