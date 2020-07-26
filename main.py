@@ -67,27 +67,6 @@
 #
 #         return self.masterlayout
 #
-#     # def change_screen(self, screen_name, direction='forward', mode = ""):
-#     #     # Get the screen manager from the kv file
-#     #     screen_manager = self.root.ids['screen_manager']
-#     #     #print(direction, mode)
-#     #     # If going backward, change the transition. Else make it the default
-#     #     # Forward/backward between pages made more sense to me than left/right
-#     #     if direction == 'forward':
-#     #         mode = "push"
-#     #         direction = 'left'
-#     #     elif direction == 'backwards':
-#     #         direction = 'right'
-#     #         mode = 'pop'
-#     #     elif direction == "None":
-#     #         screen_manager.transition = NoTransition()
-#     #         screen_manager.current = screen_name
-#     #         return
-#     #
-#     #     screen_manager.transition = CardTransition(direction=direction, mode=mode)
-#     #
-#     #     screen_manager.current = screen_name
-#
 #     def playSound(self,som,instance):
 #         #funcao que toca a musica/som
 #         song = SoundLoader.load("music/"+som)
@@ -105,24 +84,58 @@
 
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen
+from kivy.uix.screenmanager import Screen, NoTransition, CardTransition
+from kivy.uix.button import ButtonBehavior
+from kivy.uix.image import Image
+from kivy.core.window import Window
+from kivy.core.audio import SoundLoader
+from functools import partial
+
 
 class HomeScreen(Screen):
     pass
+
 class SettingsScreen(Screen):
     pass
 
+class ImageButton(ButtonBehavior, Image):
+    def playSound(self, song):
+        song = SoundLoader.load("music/" + song)
+        song.play()
+        self.playing.append(song)
+    def btn_pressed(self):
+        sound = SoundLoader.load("music/" + 'beautiful.wav')
+        sound.play()
+    pass
 
 GUI = Builder.load_file("main.kv")
 class MainApp(App):
     def build(self):
+        Window.borderless = False
+        Window.size = (400, 720)
         return GUI
 
-    def change_screen(self, screen_name):
+    def on_start(self):
+        return self.change_screen("home_screen", "None")
+
+    def change_screen(self, screen_name, direction='forward', mode = ""):
         # Get the screen manager from the kv file
         screen_manager = self.root.ids['screen_manager']
-        screen_manager.transition
-        screen_manager.current = screen_name
+
+        if direction == 'forward':
+            mode = "push"
+            direction = 'left'
+        elif direction == 'backwards':
+            direction = 'right'
+            mode = 'pop'
+        elif direction == "None":
+            screen_manager.transition = NoTransition()
+            screen_manager.current = screen_name
+            return
         #screen_manager = self.root.ids
+        # screen_manager.transition
+        screen_manager.transition = CardTransition(direction=direction, mode=mode)
+        screen_manager.current = screen_name
+
 
 MainApp().run()

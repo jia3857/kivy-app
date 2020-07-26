@@ -1,8 +1,80 @@
+#:import utils kivy.utils
+
 
 <HomeScreen>:
-    Button:
-        text:
-            "You are at the home screen"
-        on_release:
-            app.change_screen("settings_screen")
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#39B3F2")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            # Current Menu Label
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, .1
+            text: "top menu"
+            #id: streak_label
+            id: top_menu_label
+        GridLayout:
+            rows: 4
+            pos_hint: {"top": .9, "left": 1}
+            size_hint: .25, .25
+            ImageButton:
+                source: "icons/trump.png"
+                on_press:
+                    self.source = "icons/play-sounds.png"
+                    #self.bind(on_press=(self.playSound, "music/beautiful.wav"))
+                    self.btn_pressed()
+
+        GridLayout:
+            # Put two weather icons and avatar icon
+            rows: 1
+            pos_hint: {"top": .8, "left": 1}
+            size_hint: 1, .2
+            Image:
+                source: "icons/003-sunset.png"
+            Image:
+                source: "icons/man.png"
+            Image:
+                source: "icons/007-crescent-moon.png"
+        GridLayout:
+            # Banner grid
+            cols: 5
+            pos_hint: {"top": .6, "left": 1}
+            size_hint: 1, .4
+        GridLayout:
+            # Add 4 Menu buttons here
+            rows: 1
+            pos_hint: {"top": .2, "left": 1}
+            size_hint: 1, .2
+            ImageButton:
+                source: "icons/funny-sounds-button.png"
+                on_release:
+                    print("RELEASED PLAY BUTTON")
+            ImageButton:
+                source: "icons/animal-sounds.png"
+                on_release:
+                    print("RELEASED ANIMAL SOUND BUTTON")
+            ImageButton:
+                source: "icons/car-sounds.png"
+                on_release:
+                    print("RELEASED CAR SOUND BUTTON")
+            ImageButton:
+                source: "icons/settings.png"
+                on_press:
+                    self.source = "icons/settings.png"
+                on_release:
+                    self.source = "icons/settings-activated.png"
+                    print("RELEASED SETTINGS BUTTON")
+
+
+
+
+
+
+
+
+
+
 
