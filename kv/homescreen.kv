@@ -18,15 +18,29 @@
             id: top_menu_label
         GridLayout:
             rows: 4
-            pos_hint: {"top": .9, "left": 1}
-            size_hint: .25, .25
+            cols: 4
+            pos_hint: {"top": .9, "left": .25}
+            #size_hint: .25, .25
             ImageButton:
                 source: "icons/trump.png"
                 on_press:
                     self.source = "icons/play-sounds.png"
-                    #self.bind(on_press=(self.playSound, "music/beautiful.wav"))
-                    self.btn_pressed()
-
+                    self.btn_pressed("music/beautiful.wav")
+            ImageButton:
+                source: "icons/dog-bark.png"
+                on_press:
+                    self.source = "icons/play-sounds.png"
+                    self.btn_pressed("music/dog-bark.wav")
+            ImageButton:
+                source: "icons/dog-whimpering.jpg"
+                on_press:
+                    self.source = "icons/play-sounds.png"
+                    self.btn_pressed("music/dog-whimpering.wav")
+            ImageButton:
+                source: "icons/x-files.png"
+                on_press:
+                    self.source = "icons/play-sounds.png"
+                    self.btn_pressed("music/x-files.wav")
         GridLayout:
             # Put two weather icons and avatar icon
             rows: 1

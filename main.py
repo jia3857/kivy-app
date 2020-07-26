@@ -103,8 +103,11 @@ class ImageButton(ButtonBehavior, Image):
         song = SoundLoader.load("music/" + song)
         song.play()
         self.playing.append(song)
-    def btn_pressed(self):
-        sound = SoundLoader.load("music/" + 'beautiful.wav')
+    def btn_pressed(self, file):
+        print("file = %s" %file)
+        # sound = SoundLoader.load("music/" + 'beautiful.wav')
+        # sound = SoundLoader.load("music/" + file)
+        sound = SoundLoader.load(file)
         sound.play()
     pass
 
